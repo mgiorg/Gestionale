@@ -1,0 +1,62 @@
+@model Gestionale.DomainModel.UpsertStorageViewModel
+
+<h2>@(Model.Storage.Id == 0 ? "Aggiungi un Magazzino" : "Modifica Magazzino")</h2>
+
+<form action="/storage/save" method="post">
+    <!--  Campo ID Nascosto per identificare il magazzino selezionato  -->
+    <input type="hidden" name="Id" id="Id" value="@Model.Storage.Id" />
+    
+    <div class="form-group">
+        <label for="Name">City</label>
+        <input type="text" class="form-control" id="City" name="City" value="@Model.Storage.City" placeholder="Inserisci città del magazzino" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Brand">Address</label>
+        <input type="text" class="form-control" id="Address" name="Address" value="@Model.Storage.Address" placeholder="Inserisci indirizzo del magazzino" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Active">Stato attività Magazzino</label>
+        <select class="form control" id="Active" name="Active" required>
+            <option value="">-- Seleziona uno Stato</option>
+                <!option value="true" @(Model.Storage.Active ? "selected" : "")>Attivo</!option>
+                <!option value="false" @(!Model.Storage.Active ? "selected" : "")>Non attivo</!option>
+        </select>
+        
+    </div>
+
+    <a href="/storage/all" class="btn btn-danger mt-2">Annulla</a>
+    <button type="submit" class="btn btn-primary mt-2">Salva</button>
+</form>
+
+<!--  Script per eseguire il redirect automatico alla pagina  -->
+<script>
+    // Seleziona il form di cancellazione presente nel modal
+    const saveForm = document.querySelector('form[action="/storage/save"]');
+
+    // Aggiunge un listener all'evento "submit" del form
+    saveForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Previene il comportamento predefinito del form (cioè il reload della pagina)
+
+        const formData = new FormData(saveForm);
+
+        // Effettua una chiamata fetch per inviare la richiesta POST al server
+        fetch(saveForm.action, {
+            method: saveForm.method,  // Usa il metodo definito nel form (POST)
+            body: formData              // Invia i dati del form (l'id)
+        })
+            .then(response => response.json())
+            .then(commandResponse =>{
+                if (commandResponse)
+                    window.location.href = commandResponse.returnUrl;
+                else
+                    alert(commandResponse.message)
+            })
+            .catch(error => {
+                // Se c'è un errore nella richiesta, lo logga in console e mostra un alert
+                console.error("Errore durante il salvataggio:", error);
+                alert("Si è verificato un errore durante il salvataggio.");
+            });
+    });
+</script>

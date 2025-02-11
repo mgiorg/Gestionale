@@ -1,0 +1,36 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Gestionale",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-project",
+            "program": "${workspaceFolder}/Gestionale/bin/Debug/net8.0/Gestionale.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Gestionale",
+            "stopAtEntry": false,
+            "console": "internalConsole",
+            "serverReadyAction": {
+                "action": "startDebugging",
+                "name": "Launch Browser",
+                "pattern": "Application started"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "https://localhost:5001",
+                "DOTNET_ROLL_FORWARD": "LatestMajor"
+            }
+        },
+        {
+            "name": "Launch Browser",
+            "request": "launch",
+            "type": "chrome",
+            "url": "https://localhost:5001",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}

@@ -1,0 +1,87 @@
+@model Gestionale.DomainModel.UpsertTransportViewModel
+
+<h2>@(Model.Transport.Id == 0 ? "Aggiungi un Trasporto" : "Modifica Trasporto")</h2>
+
+<form action="/transport/save" method="post">
+    <!--  Campo Id Nascosto per identificare il trasporto selezionato  -->
+    <input type="hidden" name="Id" id="Id" value="@Model.Transport.Id" />
+    
+    <!--  Selezione del Prodotto  -->
+    <div class="form-group">
+        <label for="SelectedProduct">Seleziona un Prodotto</label>
+        <select id="SelectedProduct" name="ProductId" class="form-control">
+            <option value="">-- Seleziona un Prodotto --</option>
+            @foreach (var product in Model.Products)
+            {
+                var selected = product.Id == Model.Transport.ProductId ? "selected" : "";
+                <!option value="@product.Id" @selected>
+                    @product.Name (@product.Brand)
+                </!option>
+            }
+        </select>
+    </div>
+
+    <!--  Selezione del Magazzino  -->
+    <div class="form-group">
+        <label for="SelectedStorage">Seleziona un Magazzino</label>
+        <select id="SelectedStorage" name="StorageId" class="form-control">
+            <option value="">-- Seleziona un Magazzino --</option>
+            @foreach (var storage in Model.Storages)
+            {
+                var selected = storage.Id == Model.Transport.StorageId ? "selected" : "";
+                <!option value="@storage.Id" @selected>
+                    @storage.City (@storage.Address)
+                </!option>
+            }
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="DestCity">DestCity</label>
+        <input type="text" class="form-control" id="DestCity" name="DestCity" value="@Model.Transport.DestCity" placeholder="Inserisci città di destinazione" required />
+    </div>
+
+    <div class="form-group">
+        <label for="DestAddress">DestAddress</label>
+        <input type="text" class="form-control" id="DestAddress" name="DestAddress" value="@Model.Transport.DestAddress" placeholder="Inserisci indirizzo di destinazione" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Cost">Cost</label>
+        <input type="text" class="form-control" id="Cost" name="Cost" value="@Model.Transport.Cost" placeholder="Inserisci costo della spedizione" required />
+    </div>
+    
+    <a href="/transport/all" class="btn btn-danger mt-2">Annulla</a>
+    <button type="submit" class="btn btn-primary mt-2">Salva</button>
+</form>
+
+<!--  Script per eseguire il redirect automatico alla pagina  -->
+<script>
+    // Seleziona il form di cancellazione presente nel modal
+    const saveForm = document.querySelector('form[action="/transport/save"]');
+
+    // Aggiunge un listener all'evento "submit" del form
+    saveForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Previene il comportamento predefinito del form (cioè il reload della pagina)
+
+        const formData = new FormData(saveForm);
+
+        // Effettua una chiamata fetch per inviare la richiesta POST al server
+        fetch(saveForm.action, {
+            method: saveForm.method,  // Usa il metodo definito nel form (POST)
+            body: formData              // Invia i dati del form (l'id)
+        })
+            .then(response => response.json())
+            .then(commandResponse =>{
+                if (commandResponse)
+                    window.location.href = commandResponse.returnUrl;
+                else
+                    alert(commandResponse.message)
+            })
+            .catch(error => {
+                // Se c'è un errore nella richiesta, lo logga in console e mostra un alert
+                console.error("Errore durante il salvataggio:", error);
+                alert("Si è verificato un errore durante il salvataggio.");
+            });
+    });
+</script>
