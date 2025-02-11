@@ -7,6 +7,10 @@ html {
     font-size: 16px;
   }
 }
+h1{
+  font-family: Verdana;
+  text-align: center;
+}
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
@@ -19,6 +23,51 @@ html {
 
 body {
   margin-bottom: 60px;
-  background: url("/Wallpaper/home_wallpeper.jpeg") no-repeat center center fixed;
-  background-size: cover;
+}
+
+.elegant-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #2c3e50;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.home-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("/Wallpaper/home_wallpeper.jpeg") no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+.product-background {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("/Wallpaper/products.jpg") no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+
+.home-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Modifica il container principale solo per la home */
+.home-container + .container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.product-content {
+    position: relative;
+    z-index: 1;
 }

@@ -17,6 +17,7 @@
 
     <ItemGroup>
       <None Include="wwwroot\Wallpaper\home_wallpeper.jpeg" />
+      <None Include="wwwroot\favicon\bnt.ico" />
     </ItemGroup>
 
 </Project>
