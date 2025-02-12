@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/Gestionale.styles.css" asp-append-version="true"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+          integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "home-page" : "")">
 <header>
@@ -36,7 +38,8 @@
                 </ul>
 
                 <div class="navbar-brand position-absolute top-50 start-50 translate-middle">
-                    <a class="text-primary text-decoration-none d-flex align-items-center justify-content-center" asp-controller="Home" asp-action="Index">
+                    <a class="text-primary text-decoration-none d-flex align-items-center justify-content-center"
+                       asp-controller="Home" asp-action="Index">
                         <span class="brand-text me-3">Massimo</span>
                         <img src="~/favicon/bnt.ico" alt="Logo" width="30" height="30" class="mx-2">
                         <span class="brand-text ms-3">Giordano</span>
@@ -50,32 +53,37 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        
+
                         <a class="nav-link custom-link" href="#" data-bs-toggle="modal" data-bs-target=#contactsModal>
                             <i class="fas fa-envelope"></i> Contatti
                         </a>
 
                         <!-- Modal contatti -->
-                        <div class="modal fade text-dark" id="contactsModal" tabindex="-1" aria-labelledby="contactsModalLabel" aria-hidden="true">
+                        <div class="modal fade text-dark" id="contactsModal" tabindex="-1"
+                             aria-labelledby="contactsModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <!-- Intestazione del modal -->
                                     <div class="modal-header justify-content-center">
                                         <h5 class="modal-title" id="contactsModalLabel">Contatti</h5>
-                                        <button type="button" class="btn-close position-absolute end-0 me-3" data-bs-dismiss="modal" aria-label="Chiudi"></button>
+                                        <button type="button" class="btn-close position-absolute end-0 me-3"
+                                                data-bs-dismiss="modal" aria-label="Chiudi"></button>
                                     </div>
                                     <!-- Corpo del modal -->
                                     <div class="modal-body text-center">
                                         <ul class="list-unstyled mb-4">
                                             <li>
                                                 <strong>Massimo Giordano</strong><br>
-                                                Email: <a href="mailto:massimo.giord@gmail.com">massimo.giord@gmail.com</a><br>
+                                                Email: <a
+                                                    href="mailto:massimo.giord@gmail.com">massimo.giord@gmail.com</a><br>
                                                 Telefono: +39 3666139289
                                             </li>
                                             <!-- Aggiungi altri contatti qui -->
                                         </ul>
                                         <!-- Footer del modal -->
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #66affd; color: white;">Chiudi</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                                style="background-color: #66affd; color: white;">Chiudi
+                                        </button>
                                     </div>
                                 </div>
                             </div>
