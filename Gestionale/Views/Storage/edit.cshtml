@@ -4,26 +4,28 @@
 
 <form action="/storage/save" method="post">
     <!--  Campo ID Nascosto per identificare il magazzino selezionato  -->
-    <input type="hidden" name="Id" id="Id" value="@Model.Storage.Id" />
-    
+    <input type="hidden" name="Id" id="Id" value="@Model.Storage.Id"/>
+
     <div class="form-group">
         <label for="Name">City</label>
-        <input type="text" class="form-control" id="City" name="City" value="@Model.Storage.City" placeholder="Inserisci città del magazzino" required />
+        <input type="text" class="form-control" id="City" name="City" value="@Model.Storage.City"
+               placeholder="Inserisci città del magazzino" required/>
     </div>
 
     <div class="form-group">
         <label for="Brand">Address</label>
-        <input type="text" class="form-control" id="Address" name="Address" value="@Model.Storage.Address" placeholder="Inserisci indirizzo del magazzino" required />
+        <input type="text" class="form-control" id="Address" name="Address" value="@Model.Storage.Address"
+               placeholder="Inserisci indirizzo del magazzino" required/>
     </div>
 
     <div class="form-group">
         <label for="Active">Stato attività Magazzino</label>
         <select class="form control" id="Active" name="Active" required>
             <option value="">-- Seleziona uno Stato</option>
-                <!option value="true" @(Model.Storage.Active ? "selected" : "")>Attivo</!option>
-                <!option value="false" @(!Model.Storage.Active ? "selected" : "")>Non attivo</!option>
+            <!option value="true" @(Model.Storage.Active ? "selected" : "")>Attivo</!option>
+            <!option value="false" @(!Model.Storage.Active ? "selected" : "")>Non attivo</!option>
         </select>
-        
+
     </div>
 
     <a href="/storage/all" class="btn btn-danger mt-2">Annulla</a>
@@ -36,7 +38,7 @@
     const saveForm = document.querySelector('form[action="/storage/save"]');
 
     // Aggiunge un listener all'evento "submit" del form
-    saveForm.addEventListener('submit', function(event) {
+    saveForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Previene il comportamento predefinito del form (cioè il reload della pagina)
 
         const formData = new FormData(saveForm);
@@ -47,7 +49,7 @@
             body: formData              // Invia i dati del form (l'id)
         })
             .then(response => response.json())
-            .then(commandResponse =>{
+            .then(commandResponse => {
                 if (commandResponse)
                     window.location.href = commandResponse.returnUrl;
                 else

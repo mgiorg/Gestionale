@@ -4,8 +4,8 @@
 
 <form action="/transport/save" method="post">
     <!--  Campo Id Nascosto per identificare il trasporto selezionato  -->
-    <input type="hidden" name="Id" id="Id" value="@Model.Transport.Id" />
-    
+    <input type="hidden" name="Id" id="Id" value="@Model.Transport.Id"/>
+
     <!--  Selezione del Prodotto  -->
     <div class="form-group">
         <label for="SelectedProduct">Seleziona un Prodotto</label>
@@ -35,22 +35,25 @@
             }
         </select>
     </div>
-    
+
     <div class="form-group">
         <label for="DestCity">DestCity</label>
-        <input type="text" class="form-control" id="DestCity" name="DestCity" value="@Model.Transport.DestCity" placeholder="Inserisci città di destinazione" required />
+        <input type="text" class="form-control" id="DestCity" name="DestCity" value="@Model.Transport.DestCity"
+               placeholder="Inserisci città di destinazione" required/>
     </div>
 
     <div class="form-group">
         <label for="DestAddress">DestAddress</label>
-        <input type="text" class="form-control" id="DestAddress" name="DestAddress" value="@Model.Transport.DestAddress" placeholder="Inserisci indirizzo di destinazione" required />
+        <input type="text" class="form-control" id="DestAddress" name="DestAddress" value="@Model.Transport.DestAddress"
+               placeholder="Inserisci indirizzo di destinazione" required/>
     </div>
 
     <div class="form-group">
         <label for="Cost">Cost</label>
-        <input type="text" class="form-control" id="Cost" name="Cost" value="@Model.Transport.Cost" placeholder="Inserisci costo della spedizione" required />
+        <input type="text" class="form-control" id="Cost" name="Cost" value="@Model.Transport.Cost"
+               placeholder="Inserisci costo della spedizione" required/>
     </div>
-    
+
     <a href="/transport/all" class="btn btn-danger mt-2">Annulla</a>
     <button type="submit" class="btn btn-primary mt-2">Salva</button>
 </form>
@@ -61,7 +64,7 @@
     const saveForm = document.querySelector('form[action="/transport/save"]');
 
     // Aggiunge un listener all'evento "submit" del form
-    saveForm.addEventListener('submit', function(event) {
+    saveForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Previene il comportamento predefinito del form (cioè il reload della pagina)
 
         const formData = new FormData(saveForm);
@@ -72,7 +75,7 @@
             body: formData              // Invia i dati del form (l'id)
         })
             .then(response => response.json())
-            .then(commandResponse =>{
+            .then(commandResponse => {
                 if (commandResponse)
                     window.location.href = commandResponse.returnUrl;
                 else

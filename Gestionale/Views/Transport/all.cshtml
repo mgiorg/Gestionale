@@ -51,7 +51,8 @@
     </div>
 
     <!-- Modal di conferma globale -->
-    <div class="modal fade text-dark" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal fade text-dark" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -64,7 +65,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
                     <form method="post" action="/transport/delete">
-                        <input type="hidden" name="Id" id="modalTransportId" value="" />
+                        <input type="hidden" name="Id" id="modalTransportId" value=""/>
                         <button type="submit" class="btn btn-danger">Elimina</button>
                     </form>
                 </div>
@@ -76,16 +77,16 @@
     <script>
         var confirmModal = document.getElementById('confirmModal');
         confirmModal.addEventListener('show.bs.modal', function (event) {
-            
+
             // Ottieni il bottone che ha attivato il modal
             var button = event.relatedTarget;
-            
+
             // Estrai l'id del prodotto dall'attributo data-transport-id
             var transportId = button.getAttribute('data-transport-id');
-            
+
             // Aggiorna l'input nascosto nel form del modal
             var input = confirmModal.querySelector('#modalTransportId');
-            
+
             input.value = transportId;
         });
     </script>
@@ -96,7 +97,7 @@
         const deleteForm = document.querySelector('form[action="/transport/delete"]');
 
         // Aggiunge un listener all'evento "submit" del form
-        deleteForm.addEventListener('submit', function(event) {
+        deleteForm.addEventListener('submit', function (event) {
             event.preventDefault(); // Previene il comportamento predefinito del form (reload della pagina)
 
             // Crea un oggetto FormData che raccoglie i dati del form (l'id del prodotto da cancellare)
