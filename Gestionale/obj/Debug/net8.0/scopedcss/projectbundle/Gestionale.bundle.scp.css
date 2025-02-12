@@ -2,6 +2,64 @@
 /* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+/* Stile navbar */
+.navbar[b-g0knukavpe] {
+    background-color: rgb(58, 58, 58) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* Stile brand */
+.navbar-brand[b-g0knukavpe] {
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand a[b-g0knukavpe] {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-text[b-g0knukavpe] {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 10px;
+    white-space: nowrap;
+}
+
+/* Stile links */
+.nav-link.custom-link[b-g0knukavpe] {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+.nav-link.custom-link:hover[b-g0knukavpe] {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Icone */
+.nav-link i[b-g0knukavpe] {
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+/* Box shadow navbar */
+.box-shadow[b-g0knukavpe] {
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+.footer[b-g0knukavpe] {
+    background-color: rgb(58, 58, 58);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 a.navbar-brand[b-g0knukavpe] {
   white-space: normal;
   text-align: center;
@@ -9,7 +67,7 @@ a.navbar-brand[b-g0knukavpe] {
 }
 
 a[b-g0knukavpe] {
-  color: #0077cc;
+  color: #6186a0;
 }
 
 .btn-primary[b-g0knukavpe] {
@@ -19,7 +77,7 @@ a[b-g0knukavpe] {
 }
 
 .nav-pills .nav-link.active[b-g0knukavpe], .nav-pills .show > .nav-link[b-g0knukavpe] {
-  color: #fff;
+  color: #ffffff;
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
@@ -29,10 +87,6 @@ a[b-g0knukavpe] {
 }
 .border-bottom[b-g0knukavpe] {
   border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow[b-g0knukavpe] {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy[b-g0knukavpe] {
@@ -46,4 +100,13 @@ button.accept-policy[b-g0knukavpe] {
   width: 100%;
   white-space: nowrap;
   line-height: 60px;
+  text-align: right;
+}
+
+.nav-item[b-g0knukavpe]{
+  color: #b7b7b7 !important;
+}
+
+.custom-nav-button[b-g0knukavpe] {
+    color: #ffffff !important;
 }

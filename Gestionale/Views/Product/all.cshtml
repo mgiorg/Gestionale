@@ -3,120 +3,122 @@
 <div class="product-background"></div>
 <div class="product-content">
 
-<a href="/product/edit/" class="btn btn-success">
-    <i class="fas fa-cart-plus"></i>
-</a>
+    <div class="text-center mb-4">
+        <a href="/product/edit/" class="btn btn-success">
+            <i class="fas fa-box"></i> New Product
+        </a>
+    </div>
 
-<table class="table table-dark table-hover">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Brand</th>
-        <th>Price</th>
-        <th>Description</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var p in Model.Products)
-    {
-        <tr>
-            <td>@p.Id</td>
-            <td>@p.Name</td>
-            <td>@p.Brand</td>
-            <td>@p.Price</td>
-            <td>@p.Description</td>
-            <td>
-                <a href="/product/edit?id=@p.Id" class="btn btn-primary">
-                    <i class="fas fa-pen"></i>
-                </a>
-                <!-- Bottone per aprire il modal -->
-                <button type="button" class="btn btn-danger"
-                        data-bs-toggle="modal"
-                        data-bs-target="#confirmModal"
-                        data-product-id="@p.Id">
-                    <i class="fas fa-trash"></i>
-                </button>
-            </td>
-        </tr>
-    }
-    </tbody>
-</table>
+    <div class="table-container">
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Brand</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model.Products)
+            {
+                <tr>
+                    <td>@p.Id</td>
+                    <td>@p.Name</td>
+                    <td>@p.Brand</td>
+                    <td>@p.Price</td>
+                    <td>@p.Description</td>
+                    <td>
+                        <a href="/product/edit?id=@p.Id" class="btn btn-primary">
+                            Edit <i class="fas fa-pen"></i>
+                        </a>
+                        <!-- Bottone per aprire il modal -->
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmModal"
+                            data-product-id="@p.Id">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-<!-- Modal di conferma globale -->
-<div class="modal fade text-dark" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="confirmModalLabel">Conferma Eliminazione</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi"></button>
-            </div>
-            <div class="modal-body">
-                Sei sicuro di voler eliminare questo elemento?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                <form method="post" action="/product/delete">
-                    <input type="hidden" name="Id" id="modalProductId" value="" />
-                    <button type="submit" class="btn btn-danger">Elimina</button>
-                </form>
+    <!-- Modal di conferma globale -->
+    <div class="modal fade text-dark" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmModalLabel">Conferma Eliminazione</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi"></button>
+                </div>
+                <div class="modal-body">
+                    Sei sicuro di voler eliminare questo elemento?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                    <form method="post" action="/product/delete">
+                        <input type="hidden" name="Id" id="modalProductId" value="" />
+                        <button type="submit" class="btn btn-danger">Elimina</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Script per aggiornare dinamicamente l'id del prodotto nel modal -->
-<script>
-    var confirmModal = document.getElementById('confirmModal');
-    confirmModal.addEventListener('show.bs.modal', function (event) {
-        
-        // Ottieni il bottone che ha attivato il modal
-        var button = event.relatedTarget;
-        
-        // Estrai l'id del prodotto dall'attributo data-product-id
-        var productId = button.getAttribute('data-product-id');
-        
-        // Aggiorna l'input nascosto nel form del modal
-        var input = confirmModal.querySelector('#modalProductId');
-        
-        input.value = productId;
-    });
-</script>
+    <!-- Script per aggiornare dinamicamente l'id del prodotto nel modal -->
+    <script>
+        var confirmModal = document.getElementById('confirmModal');
+        confirmModal.addEventListener('show.bs.modal', function (event) {
 
-<!--  Script per eseguire il redirect automatico alla pagina  -->
-<script>
-    // Seleziona il form di cancellazione presente nel modal
-    const deleteForm = document.querySelector('form[action="/product/delete"]');
+            // Ottieni il bottone che ha attivato il modal
+            var button = event.relatedTarget;
 
-    // Aggiunge un listener all'evento "submit" del form
-    deleteForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Previene il comportamento predefinito del form (reload della pagina)
+            // Estrai l'id del prodotto dall'attributo data-product-id
+            var productId = button.getAttribute('data-product-id');
 
-        // Crea un oggetto FormData che raccoglie i dati del form (l'id del prodotto da cancellare)
-        const formData = new FormData(deleteForm);
+            // Aggiorna l'input nascosto nel form del modal
+            var input = confirmModal.querySelector('#modalProductId');
 
-        // Invia la richiesta POST al server tramite fetch
-        fetch(deleteForm.action, {
-            method: deleteForm.method,  // Utilizza il metodo definito nel form (POST)
-            body: formData              // Invia i dati del form
-        })
-            .then(response => response.json()) // Converte la risposta del server in JSON,
-            // che dovrebbe essere un oggetto CommandResponse
-            .then(commandResponse => {
-                // Verifica se l'operazione è andata a buon fine
-                if (commandResponse) {
-                    // Se il CommandResponse contiene un ReturnUrl, usa quello; altrimenti, reindirizza a "/product/all"
-                    window.location.href = commandResponse.returnUrl;
-                } else {
-                    // Se l'operazione non è riuscita, mostra un messaggio d'errore
-                    alert(commandResponse.message);
-                }
+            input.value = productId;
+        });
+    </script>
+
+    <!--  Script per eseguire il redirect automatico alla pagina  -->
+    <script>
+        // Seleziona il form di cancellazione presente nel modal
+        const deleteForm = document.querySelector('form[action="/product/delete"]');
+
+        // Aggiunge un listener all'evento "submit" del form
+        deleteForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Previene il comportamento predefinito del form (reload della pagina)
+
+            // Crea un oggetto FormData che raccoglie i dati del form (l'id del prodotto da cancellare)
+            const formData = new FormData(deleteForm);
+
+            // Invia la richiesta POST al server tramite fetch
+            fetch(deleteForm.action, {
+                method: deleteForm.method,  // Utilizza il metodo definito nel form (POST)
+                body: formData              // Invia i dati del form
             })
-            .catch(error => {
-                // Gestione degli errori: logga l'errore in console e mostra un messaggio all'utente
-                console.error("Errore durante la cancellazione:", error);
-                alert("Si è verificato un errore durante la cancellazione.");
-            });
-    });
-</script>
+                .then(response => response.json()) // Converte la risposta del server in JSON,
+                // che dovrebbe essere un oggetto CommandResponse
+                .then(commandResponse => {
+                    // Verifica se l'operazione è andata a buon fine
+                    if (commandResponse) {
+                        // Se il CommandResponse contiene un ReturnUrl, usa quello; altrimenti, reindirizza a "/product/all"
+                        window.location.href = commandResponse.returnUrl;
+                    } else {
+                        // Se l'operazione non è riuscita, mostra un messaggio d'errore
+                        alert(commandResponse.message);
+                    }
+                })
+                .catch(error => {
+                    // Gestione degli errori: logga l'errore in console e mostra un messaggio all'utente
+                    console.error("Errore durante la cancellazione:", error);
+                    alert("Si è verificato un errore durante la cancellazione.");
+                });
+        });
+    </script>

@@ -14,20 +14,72 @@
 </head>
 <body class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "home-page" : "")">
 <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Gestionale</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+        <div class="container-fluid position-relative">
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
+                <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-link custom-link" asp-controller="Storage" asp-action="All">
+                            <i class="fas fa-warehouse"></i> Storages
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <a class="nav-link custom-link" asp-controller="Product" asp-action="All">
+                            <i class="fas fa-box"></i> Products
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link custom-link" asp-controller="Transport" asp-action="All">
+                            <i class="fas fa-truck"></i> Transports
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="navbar-brand position-absolute top-50 start-50 translate-middle">
+                    <a class="text-primary text-decoration-none d-flex align-items-center justify-content-center" asp-controller="Home" asp-action="Index">
+                        <span class="brand-text me-3">Massimo</span>
+                        <img src="~/favicon/bnt.ico" alt="Logo" width="30" height="30" class="mx-2">
+                        <span class="brand-text ms-3">Giordano</span>
+                    </a>
+                </div>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link custom-link" href="https://github.com/mgiorg/Gestionale" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        
+                        <a class="nav-link custom-link" href="#" data-bs-toggle="modal" data-bs-target=#contactsModal>
+                            <i class="fas fa-envelope"></i> Contatti
+                        </a>
+
+                        <!-- Modal contatti -->
+                        <div class="modal fade text-dark" id="contactsModal" tabindex="-1" aria-labelledby="contactsModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!-- Intestazione del modal -->
+                                    <div class="modal-header justify-content-center">
+                                        <h5 class="modal-title" id="contactsModalLabel">Contatti</h5>
+                                        <button type="button" class="btn-close position-absolute end-0 me-3" data-bs-dismiss="modal" aria-label="Chiudi"></button>
+                                    </div>
+                                    <!-- Corpo del modal -->
+                                    <div class="modal-body text-center">
+                                        <ul class="list-unstyled mb-4">
+                                            <li>
+                                                <strong>Massimo Giordano</strong><br>
+                                                Email: <a href="mailto:massimo.giord@gmail.com">massimo.giord@gmail.com</a><br>
+                                                Telefono: +39 3666139289
+                                            </li>
+                                            <!-- Aggiungi altri contatti qui -->
+                                        </ul>
+                                        <!-- Footer del modal -->
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #66affd; color: white;">Chiudi</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>

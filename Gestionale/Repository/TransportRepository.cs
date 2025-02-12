@@ -26,7 +26,9 @@ public class TransportRepository
     public CommandResponse Save(Transport transport)
     {
         using var db = new GestionaleDatabase();
-        var found = (from t in db.Transports where t.Id == transport.Id select t).FirstOrDefault();
+        //var found = (from t in db.Transports where t.Id == transport.Id select t).FirstOrDefault();
+        var found = db.Transports
+                                    .FirstOrDefault(x => x.Id == transport.Id);
         return found != null
             ? UpdateInternal(found, transport, db)
             : InsertInternal(transport, db);

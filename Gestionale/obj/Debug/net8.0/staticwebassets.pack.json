@@ -9,16 +9,16 @@
       "PackagePath": "staticwebassets/Wallpaper/home_wallpeper.jpeg"
     },
     {
-      "Id": "/Users/massimo/Desktop/ASPNET/Gestionale/Gestionale/wwwroot/Wallpaper/products.jpg",
-      "PackagePath": "staticwebassets/Wallpaper/products.jpg"
+      "Id": "/Users/massimo/Desktop/ASPNET/Gestionale/Gestionale/wwwroot/Wallpaper/product-image.jpg",
+      "PackagePath": "staticwebassets/Wallpaper/product-image.jpg"
     },
     {
-      "Id": "/Users/massimo/Desktop/ASPNET/Gestionale/Gestionale/wwwroot/Wallpaper/storages.jpg",
-      "PackagePath": "staticwebassets/Wallpaper/storages.jpg"
+      "Id": "/Users/massimo/Desktop/ASPNET/Gestionale/Gestionale/wwwroot/Wallpaper/storage-image.jpg",
+      "PackagePath": "staticwebassets/Wallpaper/storage-image.jpg"
     },
     {
-      "Id": "/Users/massimo/Desktop/ASPNET/Gestionale/Gestionale/wwwroot/Wallpaper/transportations.jpg",
-      "PackagePath": "staticwebassets/Wallpaper/transportations.jpg"
+      "Id": "/Users/massimo/Desktop/ASPNET/Gestionale/Gestionale/wwwroot/Wallpaper/transport-image.jpg",
+      "PackagePath": "staticwebassets/Wallpaper/transport-image.jpg"
     },
     {
       "Id": "/Users/massimo/Desktop/ASPNET/Gestionale/Gestionale/wwwroot/css/site.css",

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uKrYBCF30IOazz1brqo8U+v427bTMMhNGjiYyHePwYQ=",
+  "Hash": "hJfxViFtNx/jsD5YUxovUDvViGduF4hlUd+ISxl814M=",
   "Source": "Gestionale",
   "BasePath": "_content/Gestionale",
   "Mode": "Default",
@@ -1214,12 +1214,12 @@
       "OriginalItemSpec": "wwwroot/Wallpaper/home_wallpeper.jpeg"
     },
     {
-      "Identity": "/Users/massimo/Desktop/ASPNET/Gestionale/Gestionale/wwwroot/Wallpaper/products.jpg",
+      "Identity": "/Users/massimo/Desktop/ASPNET/Gestionale/Gestionale/wwwroot/Wallpaper/product-image.jpg",
       "SourceId": "Gestionale",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/massimo/Desktop/ASPNET/Gestionale/Gestionale/wwwroot/",
       "BasePath": "_content/Gestionale",
-      "RelativePath": "Wallpaper/products.jpg",
+      "RelativePath": "Wallpaper/product-image.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1230,15 +1230,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Wallpaper/products.jpg"
+      "OriginalItemSpec": "wwwroot/Wallpaper/product-image.jpg"
     },
     {
-      "Identity": "/Users/massimo/Desktop/ASPNET/Gestionale/Gestionale/wwwroot/Wallpaper/storages.jpg",
+      "Identity": "/Users/massimo/Desktop/ASPNET/Gestionale/Gestionale/wwwroot/Wallpaper/storage-image.jpg",
       "SourceId": "Gestionale",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/massimo/Desktop/ASPNET/Gestionale/Gestionale/wwwroot/",
       "BasePath": "_content/Gestionale",
-      "RelativePath": "Wallpaper/storages.jpg",
+      "RelativePath": "Wallpaper/storage-image.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1249,15 +1249,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Wallpaper/storages.jpg"
+      "OriginalItemSpec": "wwwroot/Wallpaper/storage-image.jpg"
     },
     {
-      "Identity": "/Users/massimo/Desktop/ASPNET/Gestionale/Gestionale/wwwroot/Wallpaper/transportations.jpg",
+      "Identity": "/Users/massimo/Desktop/ASPNET/Gestionale/Gestionale/wwwroot/Wallpaper/transport-image.jpg",
       "SourceId": "Gestionale",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/massimo/Desktop/ASPNET/Gestionale/Gestionale/wwwroot/",
       "BasePath": "_content/Gestionale",
-      "RelativePath": "Wallpaper/transportations.jpg",
+      "RelativePath": "Wallpaper/transport-image.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1268,7 +1268,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Wallpaper/transportations.jpg"
+      "OriginalItemSpec": "wwwroot/Wallpaper/transport-image.jpg"
     }
   ]
 }

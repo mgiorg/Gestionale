@@ -13,7 +13,7 @@ h1{
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+  box-shadow: 3px 3px 10px white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
@@ -50,7 +50,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("/Wallpaper/products.jpg") no-repeat center center;
+    background: url("/Wallpaper/product-image.jpg") no-repeat center center;
     background-size: cover;
     z-index: -1;
 }
@@ -67,7 +67,45 @@ body {
     margin: 0;
 }
 
-.product-content {
+.product-content, .storage-content, .transport-content {
     position: relative;
     z-index: 1;
+}
+
+.storage-background {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("/Wallpaper/storage-image.jpg") no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+
+.transport-background {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("/Wallpaper/transport-image.jpg") no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+
+.table-container {
+    max-width: 1200px;
+    margin: 0 auto;    
+    box-shadow: 10px 10px 15px white;
+}
+
+.table {
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.table th {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
 }
